@@ -18,6 +18,16 @@ const getContactById = async (id) => {
 
 const addContact = async (data) => {
   const contacts = await listContacts();
+
+  const existingContact = contacts.find(
+    (contact) => contact.email === data.email
+  );
+
+  if (existingContact) {
+    console.log("Сontact with this email already exists.");
+    return null;
+  }
+
   const newContact = {
     id: nanoid(),
     ...data,
@@ -31,6 +41,7 @@ const removeContact = async (id) => {
   const contacts = await listContacts();
   const index = contacts.findIndex((contact) => contact.id === id);
   if (index === -1) {
+    console.log("Such a contact does not exist in the database.");
     return null;
   }
   const [result] = contacts.splice(index, 1);

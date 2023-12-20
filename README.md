@@ -200,6 +200,6 @@ npm install nanoid@3
 
 npm run dev
 
-## Cкріншоти
+## Cкріншот
 
 ![Screenshoot](./assets/goit-node-cli-hw-01.png)
